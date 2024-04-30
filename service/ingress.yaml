@@ -1,0 +1,32 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: "anchore-ingress"
+  namespace: < namespace > #eg anchore
+  annotations:
+    kubernetes.io/ingress.class: "gce-internal"
+    kubernetes.io/ingress.regional-static-ip-name: "anchore-ingress"
+spec:
+  defaultBackend:
+    service:
+      name: anchore-jtchoffo-anchore-engine-enterprise-ui
+      port:
+        number: 80
+  rules:
+  - host: anchore-api.example.com
+    http:
+      paths:
+      - path: "/*"
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: anchore-jtchoffo-anchore-engine-enterprise-ui
+            port:
+              number: 80
+      - path: "/v1/*"
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: anchore-jtchoffo-anchore-engine-api
+            port:
+              number: 8228

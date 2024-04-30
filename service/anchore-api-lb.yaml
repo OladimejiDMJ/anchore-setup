@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: < service name > #Put your service name eg anchore-api-lb
+  annotations:
+          networking.gke.io/load-balancer-type: "Internal"
+  namespace: < namespace >
+spec:
+  ports:
+  - name: < port name > #eg anchore-enterprise-api-web
+    protocol: TCP
+    targetPort: 8228
+    port: 80
+  selector:
+    app: < anchore selector > #anchore-dmj-anchore-engine
+    component: api
+  type: LoadBalancer

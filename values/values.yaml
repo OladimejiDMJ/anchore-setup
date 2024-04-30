@@ -1,0 +1,27 @@
+postgresql:
+  postgresPassword: PAssw0rd
+  externalEndpoint: Null
+  persistence:
+    size: 100Gi
+    storageClass: anchore-storage-class
+
+anchoreGlobal:
+  defaultAdminPassword: PAssw0rd
+  defaultAdminEmail: jimmy.tchoffo@actian.com
+  enableMetrics: True
+
+anchoreEnterpriseGlobal:
+  enabled: true
+
+anchore-feeds-db:
+  postgresPassword: PAssw0rd
+  persistence:
+    size: 60Gi
+    storageClass: anchore-storage-class
+
+anchoreEnterpriseFeeds:
+  persistence:
+    storageClass: anchore-storage-class
+
+
+
