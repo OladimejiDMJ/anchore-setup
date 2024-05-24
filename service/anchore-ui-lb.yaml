@@ -4,14 +4,14 @@ metadata:
   name: < your name > #eg anchore-ui-lb
   annotations:
           networking.gke.io/load-balancer-type: "Internal"
-  namespace: < your namespace >
+  namespace: < your namespace > #eg anchore
 spec:
   ports:
-  - name: anchore-enterprise-ui-web
+  - name: <port name>     #anchore-enterprise-ui-web
     protocol: TCP
     targetPort: 3000
     port: 80
   selector:
-    app: anchore-jtchoffo-anchore-engine
+    app: <selector># eg anchore-dmj-anchore-engine
     component: enterprise-ui
   type: LoadBalancer
