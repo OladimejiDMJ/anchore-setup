@@ -4,7 +4,7 @@ metadata:
   name: < service name > #Put your service name eg anchore-api-lb
   annotations:
           networking.gke.io/load-balancer-type: "Internal"
-  namespace: < namespace >
+  namespace: < namespace > # anchore
 spec:
   ports:
   - name: < port name > #eg anchore-enterprise-api-web
