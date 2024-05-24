@@ -9,24 +9,24 @@ metadata:
 spec:
   defaultBackend:
     service:
-      name: anchore-jtchoffo-anchore-engine-enterprise-ui
+      name: anchore-dmj-anchore-engine-enterprise-ui
       port:
         number: 80
   rules:
-  - host: anchore-api.example.com
+  - host: <host url name>  # anchore-api.example.com
     http:
       paths:
       - path: "/*"
         pathType: ImplementationSpecific
         backend:
           service:
-            name: anchore-jtchoffo-anchore-engine-enterprise-ui
+            name: anchore-dmj-anchore-engine-enterprise-ui
             port:
               number: 80
       - path: "/v1/*"
         pathType: ImplementationSpecific
         backend:
           service:
-            name: anchore-jtchoffo-anchore-engine-api
+            name: anchore-dmj-anchore-engine-api
             port:
               number: 8228
